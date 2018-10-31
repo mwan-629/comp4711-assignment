@@ -17,3 +17,17 @@ let displayNewRemoteVideo = (video,peer) => {
     // $(`#${id}`).html(video);
     // $(`#${id} video`).addClass('ui image medium'); // Make video element responsive
 }
+
+let showOnlyPersonMessage = () => {
+    let element = document.getElementById("onlyPersonMsg");
+    console.log(element)
+    element.style.display = "block";
+    console.log("show!")
+    
+}
+
+let hideOnlyPersonMessage = () => {
+    let element = document.getElementById("onlyPersonMsg");
+    element.style.display= "none";
+    console.log("hide...")
+}

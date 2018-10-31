@@ -18,10 +18,30 @@ const webrtc = new SimpleWebRTC({
 // Remote video was added
 webrtc.on('videoAdded', (video, peer) => {
     // displayNewRemoteVideo(video,peer);
-    remoteVideosCount += 1;
+    incrementRemoteVideoCount();
+    if (getRemoteVideoCount() === 1) {
+      showOnlyPersonMessage();
+    } else {
+      hideOnlyPersonMessage();
+    }
   });
+
+// Remote video was added
+webrtc.on('videoRemoved', (video, peer) => {
+  // displayNewRemoteVideo(video,peer);
+  remoteVideosCount -= 1;
+  if (getRemoteVideoCount() === 1) {
+    showOnlyPersonMessage();
+  }
+});
 
 let joinChat = () => {
     webrtc.joinRoom(globalRoom);
     console.log("joined " +globalRoom);
+    incrementRemoteVideoCount();
+    if (getRemoteVideoCount() === 1) {
+      showOnlyPersonMessage();
+    } else {
+      hideOnlyPersonMessage();
+    }
 }
