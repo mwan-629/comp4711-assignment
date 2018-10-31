@@ -1,7 +1,7 @@
 let onJoinChatClick = () => {
     let element = document.getElementById("join-chat-row");
     joinChat();
-    sendDisplayName();
+    saveDisplayName();
     element.parentNode.removeChild(element);
 
 }
@@ -36,10 +36,26 @@ let hideOnlyPersonMessage = () => {
     element.style.display= "none";
 }
 
-let addToNameList = (name) => {
+let addToNameList = (name,id) => {
+    let existingEl = document.getElementById(id);
+    if (existingEl === null) {
+        let element = document.getElementById("name-list");
+        let h4 = document.createElement('h4');
+        h4.setAttribute("id", id);
+        h4.appendChild(document.createTextNode(name));
+        element.appendChild(h4);
+    }
+    
+}
+
+let removeNameFromList = (id) => {
+    let element = document.getElementById(id);
+    element.parentNode.removeChild(element);
+}
+
+let displayUserList = () => {
     let element = document.getElementById("name-list");
-    let h4 = document.createElement('h4');
-    h4.setAttribute("id", name);
-    h4.appendChild(document.createTextNode(name));
-    element.appendChild(h4);
+    element.style.display = "block";
+    document.getElementById("user-in-call-msg").innerHTML = usersInCallMsg;
+
 }
