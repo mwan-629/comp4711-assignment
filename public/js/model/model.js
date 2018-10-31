@@ -1,4 +1,4 @@
-const globalRoom = "globalRoom";
+const globalRoom = "T-+K*iQsGia%ej@S";
 const localImageEl = $('#local-image');
 const localVideoEl = $('#local-video');
 const remoteVideosEl = $('#remote-videos');
