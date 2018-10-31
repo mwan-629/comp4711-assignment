@@ -1,6 +1,7 @@
 let onJoinChatClick = () => {
     let element = document.getElementById("join-chat-row");
     joinChat();
+    sendDisplayName();
     element.parentNode.removeChild(element);
 
 }
@@ -18,16 +19,27 @@ let displayNewRemoteVideo = (video,peer) => {
     // $(`#${id} video`).addClass('ui image medium'); // Make video element responsive
 }
 
+let setLocalDisplayName = (displayName) => {
+    let element = document.getElementById("local-display-name");
+    element.innerHTML = displayName;
+}
+
 let showOnlyPersonMessage = () => {
     let element = document.getElementById("onlyPersonMsg");
-    console.log(element)
     element.style.display = "block";
-    console.log("show!")
+    element.innerHTML = onlyPersonMessage;
     
 }
 
 let hideOnlyPersonMessage = () => {
     let element = document.getElementById("onlyPersonMsg");
     element.style.display= "none";
-    console.log("hide...")
+}
+
+let addToNameList = (name) => {
+    let element = document.getElementById("name-list");
+    let h4 = document.createElement('h4');
+    h4.setAttribute("id", name);
+    h4.appendChild(document.createTextNode(name));
+    element.appendChild(h4);
 }

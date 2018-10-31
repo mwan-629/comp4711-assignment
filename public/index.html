@@ -14,10 +14,16 @@
     <h1 class="ui header">COMP 4711 - Assignment 1 Video App</h1>
     <hr>
 
-    <div>
-        <h3>Your Camera:</h3>
-        <img id="local-image" class="ui large image" src="images/placeholder.jpg">
-        <video id="local-video" class="ui large image hidden" autoplay></video>
+    <div class="row">
+      <div class="col">
+          <h3>Your Camera:</h3>
+          <img id="local-image" class="ui large image" src="images/placeholder.jpg">
+          <video id="local-video" class="ui large image hidden" autoplay></video>
+          <h5 id="local-display-name"></h5>
+      </div>
+      <div class="col" id="name-list">
+        <h3>Current Users in Chat:</h3>
+      </div>
     </div>
 
     <div class="row" id="join-chat-row">
@@ -25,20 +31,17 @@
             <button id="join-btn" class="col btn btn-success" onclick="onJoinChatClick()">Join Video Chat</button>
     </div>
     <div class="row" id="remote-videos">
-      <h3 id="onlyPersonMsg">No one's here at the moment! When someone arrives they will appear here!</h3>
-
+      <h3 id="onlyPersonMsg"></h3>
     </div>
   </div>
 
 
   <!-- Scripts -->
   <script src="scripts/jquery/dist/jquery.min.js"></script>
-  <!-- <script src="scripts/semantic-ui-css/semantic.min.js"></script> -->
-  <!-- <script src="scripts/handlebars/dist/handlebars.min.js "></script> -->
   <script src="scripts/simplewebrtc/out/simplewebrtc-with-adapter.bundle.js"></script>
   <script src="js/model/model.js"></script>
   <script src="js/view/view.js"></script>
   <script src="js/controller/controller.js"></script>
-  </script>  <script src="js/app.js"></script>
+  <script src="js/constants/constants.js"></script>
 </body>
 </html>
