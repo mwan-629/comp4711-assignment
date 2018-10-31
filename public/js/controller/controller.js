@@ -59,6 +59,7 @@ let joinChat = () => {
       hideOnlyPersonMessage();
     }
     displayUserList();
+    hideInstructions();
 }
 
 //Saves the display name locally

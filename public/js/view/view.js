@@ -55,6 +55,11 @@ let displayUserList = () => {
 
 }
 
+let hideInstructions = () => {
+    let element = document.getElementById("instructions")
+    element.style.display = "none";
+}
+
 //Sets the messages of all the static html elements
 let setMessages = () => {
     let header = document.getElementById("title");
