@@ -1,2 +1,9 @@
-let onlyPersonMessage = "No one else is here! When someone arrives they will appear below!"
-let usersInCallMsg= "Current Users in Call:"
+let onlyPersonMessage = "No one else is here! When someone arrives they will appear below!";
+let usersInCallMsg= "Other Users in Call:";
+let instructionsMsg = "Instructions";
+let instruction_step1 = "Type in a display name";
+let instruction_step2 = "Click the Join Video Chat button";
+let instruction_step3 = "Wait for others to join the chat!";
+let cameraLabel = "Your Camera:";
+let joinBtnMsg = "Join Video Chat";
+let title = "COMP 4711 - Assignment 1 Video App";

@@ -1,5 +1,6 @@
-.remote-video {
-    width: 300px;
+#remote-videos {
+    display:block;
+    margin: 0px;
 }
 
 .header {
@@ -11,7 +12,7 @@
 }
 
 video {
-    width: 40%
+    width: 40%;
 }
 #onlyPersonMsg {
     display: none;

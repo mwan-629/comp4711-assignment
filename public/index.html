@@ -11,18 +11,25 @@
 <body>
   <!-- Main Content -->
   <nav class="navbar navbar-dark bg-dark">
-      <h1 class="ui header">COMP 4711 - Assignment 1 Video App</h1>
+      <h1 class="ui header" id="title"></h1>
   </nav>
   <div class="ui container">
-      
-    
 
+      <div class="jumbotron" id="instructions">
+          <h1 class="display-4" id="instruction-msg"></h1>
+          <hr class="my-4">
+          <ol>
+          <li id="step1-msg"></li>
+          <li id="step2-msg"></li>
+          <li id="step3-msg"></li>
+          </ol>
+        </div>
     <div class="row">
       <div class="col">
-          <h3>Your Camera:</h3>
+          <h3 id="camera-label"></h3>
           <img id="local-image" class="ui large image" src="images/placeholder.jpg">
           <video id="local-video" class="ui large image hidden" autoplay></video>
-          <h5 id="local-display-name"></h5>
+          <p id="local-display-name"></p>
       </div>
       <div class="col" id="name-list">
         <h3 id="user-in-call-msg"></h3>
@@ -31,7 +38,7 @@
 
     <div class="row" id="join-chat-row">
             <input id="display-name" class="col form-control" type="text" placeholder="Enter display name">
-            <button id="join-btn" class="col btn btn-success" onclick="onJoinChatClick()">Join Video Chat</button>
+            <button id="join-btn" class="col btn btn-success" onclick="onJoinChatClick()"></button>
     </div>
     <div class="row" id="remote-videos">
       <h3 id="onlyPersonMsg"></h3>
@@ -42,9 +49,10 @@
   <!-- Scripts -->
   <script src="scripts/jquery/dist/jquery.min.js"></script>
   <script src="scripts/simplewebrtc/out/simplewebrtc-with-adapter.bundle.js"></script>
+  <script src="js/constants/constants.js"></script>
   <script src="js/model/model.js"></script>
   <script src="js/view/view.js"></script>
   <script src="js/controller/controller.js"></script>
-  <script src="js/constants/constants.js"></script>
+  
 </body>
 </html>

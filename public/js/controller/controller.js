@@ -1,22 +1,24 @@
-const webrtc = new SimpleWebRTC({
-    localVideoEl: 'local-video',
-    remoteVideosEl: 'remote-videos',
-    autoRequestMedia: true,
-    enableDataChannels: true
-  });
+  //Define the webRTC object
+  const webrtc = new SimpleWebRTC({
+      localVideoEl: 'local-video',
+      remoteVideosEl: 'remote-videos',
+      autoRequestMedia: true
+    });
+
+  //Event listener when the Connection is Ready
   webrtc.on('connectionReady', (sessionId) => {
     setSessionId(sessionId);
   })
 
-
+  //Event listener when the Local Stream is Connected
   webrtc.on('localStream', () => {
     localImageEl.hide();
     localVideoEl.show();
   });
 
   
-
-webrtc.on('videoAdded', (video, peer) => {
+  //Event listener when the video is added
+  webrtc.on('videoAdded', (video, peer) => {
     incrementRemoteVideoCount();
     if (getRemoteVideoCount() === 1) {
       showOnlyPersonMessage();
@@ -25,11 +27,11 @@ webrtc.on('videoAdded', (video, peer) => {
     }
     let displayName = getDisplayName();
     let id = getSessionId();
-    webrtc.sendToAll('name', {name: displayName, sessionId:id})
+    webrtc.sendToAll('name', {name: displayName, sessionId:id});
     
   });
 
-
+//Event listener when the video is removed
 webrtc.on('videoRemoved', (video, peer) => {
   remoteVideosCount -= 1;
   removeNameFromList(peer.id);
@@ -38,6 +40,7 @@ webrtc.on('videoRemoved', (video, peer) => {
   }
 });
 
+//Event listener when a message is received
 webrtc.connection.on('message', (data) => {
   if (data.type === 'name') {
     const message = data.payload;
@@ -45,7 +48,7 @@ webrtc.connection.on('message', (data) => {
   }
 });
 
-
+//Joins the room, and displays the list of users
 let joinChat = () => {
     webrtc.joinRoom(globalRoom);
     let element = document.getElementById("display-name");
@@ -58,6 +61,7 @@ let joinChat = () => {
     displayUserList();
 }
 
+//Saves the display name locally
 let saveDisplayName = () => {
   let element = document.getElementById("display-name");
   setDisplayName(element.value);
